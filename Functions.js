@@ -13,3 +13,7 @@ A Boolean which is true if the value valueToFind
 is found within the array (or the part of the array 
 indicated by the index fromIndex, if specified).
 */
+
+Array.prototype.includes(valueToFind){
+
+}
