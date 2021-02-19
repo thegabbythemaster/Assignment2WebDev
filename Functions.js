@@ -1,21 +1,18 @@
-/*The includes() method determines whether an array includes 
-a certain value among its entries, returning true or false as 
-appropriate.
+// Practical Web Dev
+// Team Foodies - Samantha Ngo, Gabby Gonzalez, Kristy Lau, Nirmala Kuhl
+// Assignment #2
+// 2021-02-19
 
-Parameters
-valueToFind
-The value to search for.
-fromIndex (Optional)
-The position in this array at which to begin searching for valueToFind.
+// NIRMALA'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
+// functions go here
 
-Return value
-A Boolean which is true if the value valueToFind
-is found within the array (or the part of the array 
-indicated by the index fromIndex, if specified).
-*/
+
+// KRISTY'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
+// functions go here
 
 
 
+// GABBY'S FUNCTIONS ----------------------------------------------------------------------------------------------------------------------------
 /*
 const power = function(base, exponent) {
     let result = 1;
@@ -24,10 +21,10 @@ const power = function(base, exponent) {
     }
     return result;
   };
-  
+
   console.log(power(2, 10));
   // → 1024
- 
+
 */
 //INCLUDES
 Array.prototype.myIncludes = function(valueToFind){
@@ -50,8 +47,8 @@ Parameters
 searchElement
 Element to locate in the array.
 fromIndex Optional
-The index to start the search at. If the index is greater than or equal to the array's length, -1 is returned, 
-which means the array will not be searched. If the provided index value is a negative number, 
+The index to start the search at. If the index is greater than or equal to the array's length, -1 is returned,
+which means the array will not be searched. If the provided index value is a negative number,
 it is taken as the offset from the end of the array.
 
 Return value
@@ -80,10 +77,10 @@ The new length property of the object upon which the method was called.
 Description
 The push method appends values to an array.
 
-push is intentionally generic. This method can be used with call() or apply() 
-on objects resembling arrays. The push method relies on a length property to 
-determine where to start inserting the given values. If the length property cannot be 
-converted into a number, the index used is 0. This includes the possibility of length 
+push is intentionally generic. This method can be used with call() or apply()
+on objects resembling arrays. The push method relies on a length property to
+determine where to start inserting the given values. If the length property cannot be
+converted into a number, the index used is 0. This includes the possibility of length
 being nonexistent, in which case length will also be created.
 */
 
@@ -103,3 +100,68 @@ let arr3 = [1, 2, 3, 4];
 console.log(arr3.myPush(5));
 console.log(arr3.myPush(6));
 console.log(arr3.myPush(7));
+
+// SAMANTHA'S FUNCTIONS ----------------------------------------------------------------------------------------------------------
+// Returns the index of the first character of the last instance of the target string.
+// Params: searchVal - str indicating value to search for
+// Returns: index of the first character of the last instance of the target string and -1 if not found
+String.prototype.myUnshift = function(searchVal){
+  let valLen = searchVal.length;
+  let lastIndex = -1;
+  for(let i = 0; i < this.length-valLen; i++){
+    if(this.slice(i, i+valLen) == searchVal){
+      lastIndex = i;
+    }
+  }
+  return lastIndex;
+}
+
+// // Tests
+// let testStr = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?'
+// console.log(testStr.myUnshift("dog")) // Should be 52
+// console.log(testStr.myUnshift("pumpkin")) // Should be -1
+// testStr = ""
+// console.log(testStr.myUnshift("pumpkin")) // Should be -1
+
+// Returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would
+// Params: obj - object
+// Returns: an array of the object's keys
+Object.prototype.grabKeys = function() {
+  let keys = [];
+  for (const key in this){
+    if (this.hasOwnProperty(key)){
+      keys.push(key);
+    }
+  }
+  return keys;
+}
+
+// Returns an array of a given object's own enumerable property values, iterated in the same order that a normal loop would
+// Params: obj - object
+// Returns: an array of the object's values
+Object.prototype.grabValues = function() {
+  let values = [];
+  for (const key in this){
+    if (this.hasOwnProperty(key)){
+      values.push(this[key]);
+    }
+  }
+  return values;
+}
+
+// Tests
+let testObj = {
+                "apple": "red",
+                "blueberry":"blue",
+                "strawberry": "red",
+                "pineapple": "yellow",
+                "number": 14
+              };
+let testEmptyObj = {};
+
+// Tests
+// console.log("Test 1:", testObj.grabKeys()) // Should be ["apple", "blueberry", "strawberry", "pineapple", "number"]
+// console.log("Test 2:", testEmptyObj.grabKeys()) // Should be []
+// console.log("Test 3:", testObj.grabValues()) // Should be ["red", "blue", "red", "yellow"]
+// console.log("Test 4:", testEmptyObj.grabValues()) // Should be []
+
