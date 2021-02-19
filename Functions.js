@@ -14,6 +14,32 @@ is found within the array (or the part of the array
 indicated by the index fromIndex, if specified).
 */
 
-Array.prototype.includes(valueToFind){
 
-}
+
+/*
+const power = function(base, exponent) {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+      result *= base;
+    }
+    return result;
+  };
+  
+  console.log(power(2, 10));
+  // → 1024
+ 
+*/
+//INCLUDES
+Array.prototype.myIncludes = function(valueToFind){
+    for(let i = 0; i< this.length; i++){
+        if(this[i] == valueToFind){
+            return true;
+        }
+    }
+    return false;
+};
+
+const arr = [1, 2, 3];
+console.log(arr.myIncludes(1));
+
+
