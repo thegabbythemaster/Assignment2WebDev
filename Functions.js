@@ -5,7 +5,16 @@
 
 // NIRMALA'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
 // functions go here
+Array.prototype.myForEach = function(callback){
+	// try to execute "callback" on the first element of this array
+  	for(let i=0; i<this.length; i++){
+		callback(this[i],i,this);
+    }
+   
+};
 
+const array1 = [1, 2, 3, 4];
+array1.myForEach( function(element){ console.log(element)} );
 
 // KRISTY'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
 // functions go here
