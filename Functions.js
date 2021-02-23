@@ -33,6 +33,16 @@ const map1 = array1.myMap(x => x * 2);
 console.log(map1);
 // expected output: Array [2, 8, 18, 32]
 
+Array.prototype.myFilter = function(callback){
+	newArray=[]
+    for(let i=0; i<this.length; i++){ //for every word
+		if (callback(this[i])){       //check if it matches the function
+          	newArray.push(this[i])    //insert in new array
+        }
+    }
+    return newArray
+};
+
 // KRISTY'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
 // functions go here
 
