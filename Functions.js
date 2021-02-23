@@ -5,7 +5,33 @@
 
 // NIRMALA'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
 // functions go here
+Array.prototype.myForEach = function(callback){
+	// try to execute "callback" on the first element of this array
+  	for(let i=0; i<this.length; i++){
+		callback(this[i],i,this);
+    }
+   
+};
 
+const array1 = [1, 2, 3, 4];
+array1.myForEach( function(element){ console.log(element)} );
+
+Array.prototype.myMap = function(callback){
+  	newArray=[]
+	for(let i = 0; i< this.length; i++){
+		newArray.push(callback(this[i]))
+    }
+  	return newArray
+}
+
+
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.myMap(x => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
 
 // KRISTY'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
 // functions go here
