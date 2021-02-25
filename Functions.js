@@ -141,7 +141,7 @@ console.log(arr3.myPush(7));
 // Returns the index of the first character of the last instance of the target string.
 // Params: searchVal - str indicating value to search for
 // Returns: index of the first character of the last instance of the target string and -1 if not found
-String.prototype.myUnshift = function(searchVal){
+String.prototype.myLastIndexOf = function(searchVal){
   let valLen = searchVal.length;
   let lastIndex = -1;
   for(let i = 0; i < this.length-valLen; i++){
@@ -154,10 +154,10 @@ String.prototype.myUnshift = function(searchVal){
 
 // // Tests
 // let testStr = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?'
-// console.log(testStr.myUnshift("dog")) // Should be 52
-// console.log(testStr.myUnshift("pumpkin")) // Should be -1
+// console.log(testStr.myLastIndexOf("dog")) // Should be 52
+// console.log(testStr.myLastIndexOf("pumpkin")) // Should be -1
 // testStr = ""
-// console.log(testStr.myUnshift("pumpkin")) // Should be -1
+// console.log(testStr.myLastIndexOf("pumpkin")) // Should be -1
 
 // Returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would
 // Params: obj - object
