@@ -106,6 +106,25 @@ Array.prototype.myReduce = function(callback, initialValue){
   return accumulator;
 };
 
+/*
+//Testing the following
+const isBelowThreshold = (currentValue) => currentValue < 40;
+const isBelowThreshold2 = (currentValue) => currentValue < 30;
+const isBelowThreshold3 = (currentValue) => currentValue < 20;
+
+const Kristyarray = [1, 30, 39, 29, 10, 13];
+const Kristyarray2 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+console.log("Testing Kristy's functions");
+console.log(Kristyarray.myEvery(isBelowThreshold)); //true
+console.log(Kristyarray.mySome(isBelowThreshold2)); //true
+console.log(Kristyarray.myEvery(isBelowThreshold3)); //false
+console.log("Testing Kristy's reduce functions");
+console.log(Kristyarray2.myReduce(reducer)); //10
+console.log(Kristyarray2.myReduce(reducer, 5)); //15
+
+*/
+
 
 // GABBY'S FUNCTIONS ----------------------------------------------------------------------------------------------------------------------------
 /*
