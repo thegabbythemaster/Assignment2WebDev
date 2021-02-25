@@ -44,8 +44,67 @@ Array.prototype.myFilter = function(callback){
 };
 
 // KRISTY'S FUNCTIONS -------------------------------------------------------------------------------------------------------------------------
-// functions go here
+/*
+ * some() (aka any())
+ * The some() method tests whether at least one element in the array passes the test implemented by the provided function.
+ * It returns a Boolean value.
+ * Takes three arguments: current value, index, array
+*/
+Array.prototype.mySome = function(callback){
+  for(let i = 0; i < this.length; i++) {
+      //if callback returns true for any element, return true
+     if(callback(this[i], i, this)) {
+         return true;
+     }
+  }
+  //none of the elements pass the callback test
+  return false;
+};
 
+/*
+* every()
+* The every() method tests whether all elements in the array pass the test implemented by the provided function.
+* It returns a Boolean value.
+* Takes three arguments: current value, index, array
+*/
+Array.prototype.myEvery = function(callback){
+  for(let i = 0; i < this.length; i++) {
+      //if callback returns false for any element, return false
+      if(!callback(this[i], i, this)) {
+          return false;
+      }
+  }
+  //all elements pass the callback test
+  return true;
+};
+
+/*
+* reduce()
+* The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+* Takes four arguments: accumulator, current value, current index, source array
+*/
+Array.prototype.myReduce = function(callback, initialValue){
+  //let accumulator be equal to either the initialValue given or
+  //this at the 0th index
+  //If an initialValue isn't given, it will be set equal to this[0]
+  let accumulator = initialValue || this[0];
+  
+  let i;
+  //If an initialValue was given, reduce() will start at index 0
+  //If an initialValue was not given, reduce() will start at index 1
+  if(initialValue) {
+      i = 0;
+  } else {
+      i = 1;
+  }
+
+  for(; i < this.length; i++) {
+      //accumulate the value by calling the given function
+      accumulator = callback(accumulator, this[i], i, this);
+  }
+
+  return accumulator;
+};
 
 
 // GABBY'S FUNCTIONS ----------------------------------------------------------------------------------------------------------------------------
